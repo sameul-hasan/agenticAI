@@ -1,1 +1,90 @@
 
+institute_info = {
+    "General Information": {
+        "Institute Name": "Daffodil International University",
+        "Location": "123 Innovation Drive, Tech City, Country",
+        "Contact": "+1-234-567-890",
+        "Email": "info@daffodiluniversity.edu",
+        "Website": "https://www.daffodiluniversity.edu",
+        "Office Hours": "Monday to Friday, 9:00 AM - 5:00 PM",
+        "Campus Map Link": "https://www.daffodiluniversity.edu/campus-map"
+    },
+    "Student Portals and Accounts": {
+        "BLC Account Creation": "Visit the BLC portal, click on 'Create Account', and use your student ID to register.",
+        "DIU Student Portal Creation": "Go to the DIU portal, click on 'Sign Up', and complete the form with your details."
+    },
+    "Payments": {
+        "Current Semester Payment Schema": "Tuition fee is $20,000 per year, divided into two semesters. Additional fees depend on the department and batch.",
+        "Hall Seat Booking Fee": "$200 per semester",
+        "Hall Seat Renewal Fee": "$100 per semester"
+    },
+    "Submissions": {
+        "Pending Submissions": "Log in to your BLC account to view pending assignments and submissions."
+    },
+    "Faculty and Counseling": {
+        "Counseling Hours": {
+            "Dr. Alice Smith": "Monday 2:00 PM - 4:00 PM",
+            "Dr. Bob Johnson": "Wednesday 10:00 AM - 12:00 PM"
+        }
+    },
+    "Assignments": {
+        "Cover Page Creation": "Include the subject name, teacher's name, faculty name, submission date, and your details."
+    },
+    "Clubs": {
+        "Joining Clubs": "Visit the club office or contact the president via email provided on the website.",
+        "Club Activities": "Organize events, workshops, and networking opportunities for members.",
+        "Contact Club": "Contact the club via email or attend weekly meetings."
+    },
+    "Events": {
+        "Upcoming Programs": "Visit https://www.daffodiluniversity.edu/events for the latest updates."
+    },
+    "Admissions": {
+        "How to Apply": "Visit the admissions page and complete the online application form.",
+        "Required Documents": ["High school transcripts", "National ID", "Passport-size photo", "Admission test scores"],
+        "Tuition Fees": "Varies by department; refer to the payment schema."
+    },
+    "Exams": {
+        "Overlap Exam Dates": "Refer to the academic calendar for specific dates.",
+        "How to Give an Overlap Exam": "Contact the exam office for special arrangements."
+    }
+}
+
+# Convert the updated data to a JSON file for storage
+with open('updated_institute_info.json', 'w') as json_file:
+    json.dump(institute_info, json_file, indent=4)
+
+# Create updated CSV datasets for various sections
+# Payments dataset
+payments_data = [
+    {"Category": "Tuition Fee", "Details": "$20,000 per year divided into two semesters."},
+    {"Category": "Hall Seat Booking Fee", "Details": "$200 per semester."},
+    {"Category": "Hall Seat Renewal Fee", "Details": "$100 per semester."}
+]
+payments_df = pd.DataFrame(payments_data)
+payments_df.to_csv('payments_info.csv', index=False)
+
+# Faculty Counseling Hours dataset
+counseling_hours_data = [
+    {"Faculty Name": "Dr. Alice Smith", "Counseling Hours": "Monday 2:00 PM - 4:00 PM"},
+    {"Faculty Name": "Dr. Bob Johnson", "Counseling Hours": "Wednesday 10:00 AM - 12:00 PM"}
+]
+counseling_hours_df = pd.DataFrame(counseling_hours_data)
+counseling_hours_df.to_csv('counseling_hours_info.csv', index=False)
+
+# Assignments dataset
+assignments_data = [
+    {"Requirement": "Cover Page", "Details": "Include the subject name, teacher's name, faculty name, submission date, and your details."}
+]
+assignments_df = pd.DataFrame(assignments_data)
+assignments_df.to_csv('assignments_info.csv', index=False)
+
+# Clubs dataset
+clubs_data = [
+    {"Club Activity": "Joining Clubs", "Details": "Visit the club office or contact the president via email provided on the website."},
+    {"Club Activity": "Club Activities", "Details": "Organize events, workshops, and networking opportunities for members."},
+    {"Club Activity": "Contact Club", "Details": "Contact the club via email or attend weekly meetings."}
+]
+clubs_df = pd.DataFrame(clubs_data)
+clubs_df.to_csv('clubs_info.csv', index=False)
+
+print("Updated datasets created successfully: JSON, Payments CSV, Counseling Hours CSV, Assignments CSV, and Clubs CSV.")
